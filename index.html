@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10 - 12C5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        .hidden {
+            display: none !important;
+        }
+
+        .flower-box {
+            text-align: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        .flower {
+            font-size: 80px;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .click-text {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro-text {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        p {
+            color: #ffe6ea; /* Hồng nhạt */
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .footer {
+            color: #ffffff;
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page" onclick="startAnimation()">
+        <div class="flower-box">
+            <div class="flower">🌸</div>
+            <div class="click-text">Nhấn vào đây để mở quà nhé! ✨</div>
+        </div>
+    </div>
+
+    <div id="page2" class="page hidden">
+        <div class="card">
+            <!-- Bước 1: Dòng chữ hiện ra rồi biến mất -->
+            <div id="step1" class="intro-text fade-in">Gửi các gái 12C5</div>
+
+            <div id="step2" class="hidden">
+                <h1 class="fade-in">Chúc mừng ngày phụ nữ Việt Nam 20/10 💖</h1>
+                <p class="fade-in">
+                    Nhân dịp 20/10, chúc một nửa thế giới của lớp 12C5 luôn xinh đẹp, rạng rỡ, học thật giỏi và luôn giữ được nụ cười tươi trên môi. Cảm ơn các bạn vì đã luôn là những mảnh ghép tuyệt vời giúp lớp mình thêm vui vẻ và đáng nhớ! Chúc các bạn có một ngày lễ ngập tràn niềm vui và quà nhé! 🌷
+                </p>
+                <div class="footer fade-in">
+                    Product of: [Triệu], [Sơn], [Hoàng], [Long]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startAnimation() {
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+
+            page1.style.opacity = '0';
+            setTimeout(() => {
+                page1.classList.add('hidden');
+                page2.classList.remove('hidden');
+
+                setTimeout(() => {
+                    step1.style.transition = 'opacity 0.8s ease';
+                    step1.style.opacity = '0';
+
+                    setTimeout(() => {
+                        step1.classList.add('hidden');
+                        step2.classList.remove('hidden');
+                    }, 800);
+
+                }, 2500);
+
+            }, 500);
+        }
+    </script>
+</body>
+</html>
